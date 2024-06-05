@@ -8,7 +8,87 @@
 </head>
 
 <body>
-  <div id="app"></div>
+
+  <div id="app">
+
+    <main class="content">
+      <div class="container radius">
+
+        <div class="header p"> Field Builder </div>
+
+        <form id="form">
+
+          <div class="row">
+            <div class="col key"> <label for="label">Label</label><span class="error p">*</span> </div>
+            <div class="col val"> <input type="text" name="label" id="label" class="p border radius"
+                placeholder="Region" autofocus />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col key"> <label for="type">Type</label> </div>
+            <div class="col val">
+              <select type="text" name="type" id="type" class="p border radius">
+                <option value="multi">Multi-select</option>
+                <option value="single" disabled>Single-select</option>
+              </select>
+
+              <div class="p">
+                <input type="checkbox" id="requiredValue" name="requiredValue" checked />
+                <label for="requiredValue">A Value is required</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col key"> <label for="defaultValue">Default Value</label> </div>
+            <div class="col val"> <input type="text" name="defaultValue" id="defaultValue" class="p border radius"
+                placeholder="Asia" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col flex-start key"> <label for="options">Options</label> </div>
+            <div class="col val"> <textarea name="options" id="options" rows="10" cols="30"
+                class="p border radius"></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col key"> <label for="order">Order</label> </div>
+            <div class="col val">
+              <select type="text" name="order" id="order" class="p border radius">
+                <option value="alphaAZ">Alphabetical: A-Z</option>
+                <option value="alphaZA" disabled>Alphabetical: Z-A</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col key"> </div>
+            <div class="col val">
+              <div id="messages" class="error">&nbsp;</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col key">
+              <button type="button" id="clear" class="clear radius p">Clear</button>
+            </div>
+            <div class="col val">
+              <button type="submit" id="save" class="save radius p">Save changes</button>
+              <span class="p">or</span>
+              <button type="button" id="cancel" class="cancel">Cancel</button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </main>
+
+  </div>
+
 </body>
 
 </html>

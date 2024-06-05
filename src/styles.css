@@ -1,3 +1,91 @@
- body {
-   font-family: Arial, sans-serif;
- }
+body {
+  font-family: Arial, sans-serif;
+}
+
+#app {
+  --darkblue: rgb(59, 132, 165);
+  --lightblue: rgb(217, 238, 247);
+
+  --blue: blue;
+  --grey: grey;
+  --green: green;
+  --red: red;
+  --white: white;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  border: 1px solid var(--lightblue);
+
+  min-width: 30rem;
+}
+
+.header {
+  background-color: var(--lightblue);
+  color: var(--darkblue);
+  font-weight: medium;
+
+  border-bottom: 1px solid var(--lightblue);
+
+  padding: 0.4rem 0.6rem;
+}
+
+.row {
+  display: flex;
+  padding: 1rem 2rem;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+}
+
+.key {
+  flex: 1;
+}
+
+.val {
+  flex: 3;
+}
+
+.save {
+  background-color: var(--green);
+  color: var(--white);
+
+  border: 1px solid var(--green);
+
+  padding: 0.4rem 0.6rem;
+}
+
+.cancel {
+  background-color: var(--white);
+  color: var(--red);
+
+  border: 0px;
+
+  padding: 0;
+}
+
+.error {
+  color: var(--red);
+}
+
+.p {
+  padding: 0.4rem 0.6rem;
+}
+
+.border {
+  border: 1px solid var(--grey);
+}
+
+.radius {
+  border-radius: 2px;
+}
+
+.flex-start {
+  align-items: flex-start;
+}
