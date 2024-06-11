@@ -1,7 +1,6 @@
 import { ALPHA_AZ_VALUE, MAX_OPTIONS_COUNT, MOCKY_URL, NEWLINE_CHARACTER, NON_BREAKING_SPACE } from "./consts";
 import { post } from "./services/fetch";
 
-import "./field-builder/field-builder";
 import "./styles.css";
 import { FieldForm } from "./types";
 
