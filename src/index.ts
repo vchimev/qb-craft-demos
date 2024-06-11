@@ -27,56 +27,24 @@ form?.addEventListener("submit", async (event) => {
 
     // Validations
     if (!label) {
-        const para = document.createElement("p");
-        const node = document.createTextNode("Label is required");
-
-        para.appendChild(node);
-        messages.appendChild(para);
-
-        event.preventDefault();
-
-        return;
+        return addErrorMessage(event, "Label is required");
     }
 
     const uniqueOptions = Array.from(new Set(options));
 
     if (uniqueOptions.length !== options.length) {
-        const para = document.createElement("p");
-        const node = document.createTextNode("Duplicate options are not allowed");
-
-        para.appendChild(node);
-        messages.appendChild(para);
-
-        event.preventDefault();
-
-        return;
+        return addErrorMessage(event, "Duplicate options are not allowed");
     }
 
     if (uniqueOptions.length > MAX_OPTIONS_COUNT) {
-        const para = document.createElement("p");
-        const node = document.createTextNode(`No more than ${MAX_OPTIONS_COUNT} options are allowed`);
-
-        para.appendChild(node);
-        messages.appendChild(para);
-
-        event.preventDefault();
-
-        return;
+        return addErrorMessage(event, `No more than ${MAX_OPTIONS_COUNT} options are allowed`);
     }
 
     if (defaultValue && !uniqueOptions.includes(defaultValue)) {
         if (uniqueOptions.length < MAX_OPTIONS_COUNT) {
             uniqueOptions.push(defaultValue);
         } else {
-            const para = document.createElement("p");
-            const node = document.createTextNode(`Cannot add default value as ${MAX_OPTIONS_COUNT} options allowed`);
-
-            para.appendChild(node);
-            messages.appendChild(para);
-
-            event.preventDefault();
-
-            return;
+            return addErrorMessage(event, `Cannot add default value as ${MAX_OPTIONS_COUNT} options allowed`);
         }
     }
 
@@ -93,7 +61,7 @@ form?.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
-    // TODO:
+    // TODO: apply green color
     optionsTextArea.value = uniqueOptions.join(NEWLINE_CHARACTER);
     messages.innerHTML = "Form saved successfully";
 
@@ -121,3 +89,15 @@ clear?.addEventListener("click", () => {
     optionsTextArea.value = "";
     requiredValueInput.checked = true;
 });
+
+function addErrorMessage(event: SubmitEvent, errorMessage: string) {
+    const para = document.createElement("p");
+    const node = document.createTextNode(errorMessage);
+
+    para.appendChild(node);
+    messages.appendChild(para);
+
+    event.preventDefault();
+
+    return;
+}
